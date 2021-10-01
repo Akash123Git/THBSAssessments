@@ -15,5 +15,7 @@ public class Exmp4 {
         Obj1.add(2,7);
 
         System.out.println("Length of array List is "+ Obj1.size());
+        Obj1.remove(1);
+        System.out.println("Length of array List is "+ Obj1.size());
     }
 }
