@@ -22,6 +22,25 @@ else
 
 //Code 2
 import com.eviware.soapui.support.XmlHolder
+def holder =new XmlHolder(messageExchange.getResponseContentAsXml())
+
+holder.declareNamespace("ns1", "http://tempuri.org/")
+ 
+def addResult = holder.getNodeValue("//ns1:AddResult")
+ 
+log.info "Result is :" + addResult
+ 
+if(addResult=="13")
+{
+    log.info "Pass"
+}
+else
+{
+    log.info "Fail"
+}
+
+//Code 3
+import com.eviware.soapui.support.XmlHolder
 
 respXmlHolder = new XmlHolder(messageExchange.getResponseContentAsXml())
 respXmlHolder.declareNamespace("ns1","http://tempuri.org/")
