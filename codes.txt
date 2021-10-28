@@ -55,7 +55,7 @@ else
 log.info "Fail"
 }
 
-//code 4
+//Code 4
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def holder =groovyUtils.getXmlHolder(messageExchange.responseContent)
 
