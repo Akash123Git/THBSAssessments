@@ -1,7 +1,13 @@
 Start
 
-//Script Assertion
-//Code 1
+//--> Xpath
+declare namespace soap ='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+ 
+//ns1:AddResult
+
+//-->Script Assertion
+//-->Code 1
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def holder =groovyUtils.getXmlHolder(messageExchange.responseContent)
  
@@ -20,7 +26,7 @@ else
     log.info "Fail"
 }
 
-//Code 2
+//-->Code 2
 import com.eviware.soapui.support.XmlHolder
 def holder =new XmlHolder(messageExchange.getResponseContentAsXml())
 
@@ -39,7 +45,7 @@ else
     log.info "Fail"
 }
 
-//Code 3
+//-->Code 3
 import com.eviware.soapui.support.XmlHolder
 
 respXmlHolder = new XmlHolder(messageExchange.getResponseContentAsXml())
@@ -55,7 +61,7 @@ else
 log.info "Fail"
 }
 
-//Code 4
+//-->Code 4
 def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def holder =groovyUtils.getXmlHolder(messageExchange.responseContent)
 
