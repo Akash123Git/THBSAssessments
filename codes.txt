@@ -2,10 +2,10 @@ Start
 
 //Script Assertion
 //Code 1
-def groovyUtils = new com.eviware.soapui.GroovyUtils(context)
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
 def holder =groovyUtils.getXmlHolder(messageExchange.responseContent)
  
-holder.namespace("ns1") = "http://tempuri.org/"
+holder.namespace["ns1"] = "http://tempuri.org/"
  
 def addResult = holdr.getNodavalue("ns1:AddResult")
  
