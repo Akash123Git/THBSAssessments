@@ -54,3 +54,22 @@ else
 {
 log.info "Fail"
 }
+
+//code 4
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def holder =groovyUtils.getXmlHolder(messageExchange.responseContent)
+
+holder.declareNamespace("ns1", "http://tempuri.org/")
+ 
+def addResult = holder.getNodeValue("//ns1:AddResult")
+ 
+log.info "Result is :" + addResult
+ 
+if(addResult=="13")
+{
+    log.info "Pass"
+}
+else
+{
+    log.info "Fail"
+}
