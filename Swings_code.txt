@@ -1,0 +1,93 @@
+package Swing;
+
+import java.awt.Color;
+import java.awt.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+
+public class App {
+
+	int Xaxis = 700;
+	int Yaxis = 600;
+
+	int counter = 0;
+	JFrame jf = new JFrame("Demo");
+
+	App() {
+		JTextField tf = new JTextField();
+		tf.setBounds(100, 50, 300, 40);
+		tf.setFont(new Font("Aerial", Font.PLAIN, 20));
+		tf.setLayout(null);
+
+		JButton button = new JButton("Add");
+		button.setBounds(400, 50, 100, 40);
+		button.setBackground(Color.RED);
+		button.addActionListener(e -> addIncrement(tf.getText(), jf));
+		button.setFocusable(false);
+		button.setLayout(null);
+
+		jf.setSize(Xaxis, Yaxis);
+		jf.setDefaultCloseOperation(3);
+		jf.add(button);
+		jf.add(tf);
+		jf.setLayout(null);
+		jf.setVisible(true);
+	}
+
+	private void addIncrement(String text, JFrame jf2) {
+		int y = counter * 60 + 200;
+		int x = 100;
+
+		jf.add(new TodoList(x, y, text, jf));
+		jf.repaint();
+
+		counter++;
+	}
+}
+
+package Swing;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.*;
+
+public class TodoList extends JPanel {
+
+	public TodoList(int x, int y, String txt, JFrame jf) {
+		JLabel jl = new JLabel(txt);
+		jl.setBounds(10 , 0, 300, 40);
+		jl.setBackground(Color.white);
+		jl.setFont(new Font("Aerial", Font.PLAIN, 18));
+		jl.setLayout(null);
+
+		JButton button1 = new JButton("Remove");
+		button1.setBounds(300, 0, 100, 40);
+		button1.setBackground(Color.RED);
+		button1.addActionListener(e -> {
+			jf.remove(this);
+			jf.repaint();
+		});
+		button1.setLayout(null);
+
+		this.add(jl);
+		this.add(button1);
+		this.setBounds(x, y, 400, 40);
+		this.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+		this.setLayout(null);
+	}
+}
+
+
+package Swing;
+
+public class Frame {
+	public static void main(String[] args) {
+
+		new App();
+	}
+}
